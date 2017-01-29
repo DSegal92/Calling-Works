@@ -24,6 +24,7 @@ module CallMyRep
     config.active_record.raise_in_transactional_callbacks = true
 
     config.autoload_paths << File.join(Rails.root, 'app', 'classes')
+    config.autoload_paths << File.join(Rails.root, 'lib')
 
     config.browserify_rails.commandline_options = '-t babelify'
     config.browserify_rails.paths = [%r{app/assets/javascripts/components>*.js}]
