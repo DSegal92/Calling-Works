@@ -34,7 +34,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'twilio-ruby'
 gem 'gyoku'
-gem 'react-rails', '~> 1.5.0'
+gem 'react-rails', '~> 1.6.1'
+gem 'browserify-rails', '~> 0.9.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
