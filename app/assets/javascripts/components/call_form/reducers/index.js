@@ -1,12 +1,10 @@
-import { SET_ADDRESS } from '../actions/address'
+import slugify from 'slugify';
+import { SET_REP } from '../actions'
 
-export default (state = { address: '' }, action) => {
-  console.log(action)
-  console.log(SET_ADDRESS)
+export default (state = { president: {}, vice_president: {}, senator_1: {}, senator_2: {}, representative: {} }, action) => {
   switch(action.type) {
-    case SET_ADDRESS:
-      console.log('setting')
-      return { address: action.address }
+    case SET_REP:
+      return { ...state, [action.json.designator]: action.json }
     default:
       return state
   }

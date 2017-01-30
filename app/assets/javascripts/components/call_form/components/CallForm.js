@@ -1,14 +1,17 @@
 import React from 'react';
 import AddressInput from './AddressInput';
+import Official from './Official';
 
-const CallForm = ({updateAddress, address} ) => {
+const CallForm = ({updateAddress, officials} ) => {
   return (
     <div className="call-form">
       <div className="header">
         <h1>Call My Rep</h1>
       </div>
       <AddressInput onChange={updateAddress} />
-      <h1> {address} </h1>
+      { officials.map(o =>
+                      <Official {...o}  /> )
+      }
     </div>
   )
 }

@@ -5,6 +5,7 @@ class RepresentativesController < ApplicationController
     reps = CivicsAdapter.reps(address)
 
     return head status: :bad_request if reps == []
+    puts reps.to_json
     render json: reps.to_json
   end
 end

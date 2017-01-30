@@ -7,5 +7,7 @@ class Official
     @party = params['party']
     @phones = params['phones'].first
     @photoUrl = params['photoUrl']
+    @office = params['office']
+    @designator = params['designator']
   end
 end
