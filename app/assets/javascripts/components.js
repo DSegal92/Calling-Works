@@ -1,1 +1,1 @@
-window.CallForm = require('./components/call_form').default;
+window.TestCallForm = require('./components/call_form').default;

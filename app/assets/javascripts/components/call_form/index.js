@@ -1,22 +1,16 @@
-let react = require('react');
-let { debounce } = require('../lib/debounce');
+import react from 'react';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import CallFormContainer from './containers/CallFormContainer';
+import reducer from './reducers';
+import { debounce } from '../lib/debounce';
 
-const CallForm = () => {
-  const testFunc = debounce((address) => {
-    $.ajax({
-      type: "GET",
-      url: '/representatives',
-      data: { address: address },
-      dataType: 'json',
-      success: function (data) {
-        console.log(data)
-      }
-    })
-  }, 1000)
+let store = createStore(reducer)
 
-  return (
-    <input onChange={(e) => testFunc(e.target.value)}></input>
-  )
-}
+const TestForm = () => (
+  <Provider store={store}>
+    <CallFormContainer />
+  </Provider>
+)
 
-export default CallForm;
+export default TestForm;
