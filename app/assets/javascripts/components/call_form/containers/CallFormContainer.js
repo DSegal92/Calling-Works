@@ -1,21 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CallForm from '../components/CallForm.js';
-import { fetchReps } from '../actions';
+import { fetchReps, fetchIssues } from '../actions';
 import { debounce } from '../../lib/debounce.js'
 
 const mapStateToProps = (state) => ({
-  officials: [state.president,
-              state.vice_president,
-              state.senator_0,
-              state.senator_1,
-              state.representative]
+  officials: [state.officials.president,
+              state.officials.vice_president,
+              state.officials.senator_0,
+              state.officials.senator_1,
+              state.officials.representative]
 })
 
 const mapDispatchToProps = (dispatch) => {
   let updateAddress = debounce((address) => {
     dispatch(fetchReps(address))
-  }, 1000)
+    dispatch(fetchIssues(address))
+  }, 250)
 
   return ({
     updateAddress

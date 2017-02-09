@@ -5,13 +5,15 @@ import Official from './Official';
 const CallForm = ({updateAddress, officials} ) => {
   return (
     <div className="call-form">
-      <div className="header">
-        <h1>Call My Rep</h1>
+      <div className="call-form--header">
+        <h1>Calling Works</h1>
       </div>
       <AddressInput onChange={updateAddress} />
-      { officials.map(o =>
-                      <Official {...o}  /> )
-      }
+      <div className="officials">
+        { officials.map((o, index) =>
+                        <Official {...o}  key={index}/> )
+        }
+      </div>
     </div>
   )
 }
