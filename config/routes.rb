@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :call_message, only: :create
   resources :call
   resources :representatives, only: :index
+  resources :issues, only: :index
 end
