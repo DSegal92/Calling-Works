@@ -28,5 +28,7 @@ module CallMyRep
 
     config.browserify_rails.commandline_options = '-t babelify'
     config.browserify_rails.paths = [%r{app/assets/javascripts/components>*.js}]
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end
