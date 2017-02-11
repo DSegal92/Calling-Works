@@ -2,10 +2,10 @@ class CallMessageController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
-    call_key = params[:call_key]
-    message = Redis.new.get("CALL::#{call_key}")
+    call_key = "CALL:#{params[:call_key]}"
+    message = REDIS.with { |r| r.get(call_key) }
 
-    Redis.new.del("CALL::#{call_key}")
+    REDIS.with { |r| r.del(call_key) }
 
     render xml: Gyoku.xml({ Response: { Say: message,
                                         attributes!: { Say:

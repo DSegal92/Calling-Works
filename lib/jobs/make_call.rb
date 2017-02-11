@@ -1,7 +1,8 @@
 class MakeCall < ActiveJob::Base
   def perform(script, number)
     call_key = "#{SecureRandom.uuid}-#{number}"
-    Redis.new.set("CALL::#{call_key}", script)
+
+    REDIS.with { |r| r.set("CALL::#{call_key}", script) }
 
     c = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'],
                                  TWILIO_CONFIG['auth_token'])

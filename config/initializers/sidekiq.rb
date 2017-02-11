@@ -3,9 +3,9 @@ SIDEKIQ_CONFIG = YAML.load_file(File.join(Rails.root,
                                           'sidekiq.yml'))
 
 Sidekiq.configure_server do |config|
-  config.redis = { password: SIDEKIQ_CONFIG['redis_password'] }
+  config.redis = { password: REDIS_CONFIG['password'] }
 end
 
 Sidekiq.configure_client do |config|
-  config.redis = { password: SIDEKIQ_CONFIG['redis_password'] }
+  config.redis = { password: REDIS_CONFIG['password'] }
 end
