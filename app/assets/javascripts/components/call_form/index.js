@@ -5,6 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import CallFormContainer from './containers/CallFormContainer';
 import IssuesContainer from './containers/IssuesContainer.js';
+import SubmitContainer from './containers/SubmitContainer.js';
 import reducer from './reducers';
 import { debounce } from '../lib/debounce';
 
@@ -15,6 +16,7 @@ const TestForm = () => (
     <div>
       <CallFormContainer />
       <IssuesContainer />
+      <SubmitContainer />
     </div>
   </Provider>
 )
