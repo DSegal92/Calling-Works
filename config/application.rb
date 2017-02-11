@@ -25,6 +25,7 @@ module CallMyRep
 
     config.autoload_paths << File.join(Rails.root, 'app', 'classes')
     config.autoload_paths << File.join(Rails.root, 'lib')
+    config.autoload_paths << File.join(Rails.root, 'lib', 'jobs')
 
     config.browserify_rails.commandline_options = '-t babelify'
     config.browserify_rails.paths = [%r{app/assets/javascripts/components>*.js}]
