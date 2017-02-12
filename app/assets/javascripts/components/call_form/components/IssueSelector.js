@@ -15,8 +15,7 @@ const IssueSelector = ({ issues, activeIssue, selectIssue, updateIssue }) => {
 
   return (
   <div className="issueSelector">
-    <br />
-    <br />
+    <h1> Send Them a Message </h1>
     <select onChange={(e) => { selectIssue(e.target.value) }} >
       { Object.keys(issues).map((i, index) => {
         if (index != 0) {
@@ -24,8 +23,6 @@ const IssueSelector = ({ issues, activeIssue, selectIssue, updateIssue }) => {
         }
       })}
     </select>
-    <br />
-    <br />
     <textarea value={ getScript() } onChange={(e) => updateIssue(activeIssue, e.target.value)}></textarea>
   </div>
   )

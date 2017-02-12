@@ -1,54 +1,142 @@
-$red: #f12e3a;
-$blue: #2d92f0;
+$red: rgb(255, 0, 104);
+$blue: rgb(0, 73, 255);
+$purple: rgb(34, 34, 60);
 
-.call-form {
-  h3 { font-size: 36px; }
-  h4 { font-size: 24px; }
-
+html, body {
+  background-color: rgb(34, 34, 60);
   text-align: center;
+}
 
-  .call-form--header {
-    text-align: center;
-    background-color: #68c6d0;
-    border-bottom: 1em solid #e66848;
-    h1 {
-      color: #FFF;
-      padding: 1em 0;
-      font-size: 3em;
-      font-family: 'Futura', 'Oswald';
-    }
-  }
-  position: relative;
-  perspective: 800px;
+.style1 {
+  margin-top: 60px;
+  font-size: 100px;
+  color: #fff;
+  padding: 20px;
+  font-family: 'Montserrat';
+  font-weight: 900;
 
-  .address-input {
-    margin-top: 60px;
-    font-size: 24px;
+  text-shadow: 4px 4px $blue;
+}
 
-    input {
-      height: 24px;
-      line-height: 24px;
-      font-size: 24px;
-      width: 40%;
-      border: 0em;
-      border-bottom: 2px solid #C7C7C7;
+.address-input input {
+  margin-top: 60px;
+  width: 80%;
+  height: 80px;
+  background-color: transparent;
+  border: 0px;
+  border-bottom: 3px solid #FFF;
+  border-right: 3px solid #FFF;
+  box-shadow: 7px 6px 0px $blue;
+  font-family: 'Raleway';
+  font-size: 80px;
+  line-height: 80px;
+  color: #fff;
+  margin-bottom: 100px;
 
-      &::-webkit-input-placeholder { font-size: 12px; line-height: 12px; }
-      &:-moz-placeholder { font-size: 1em; line-height: 1em;  }
-      &::-moz-placeholder { font-size: 1em; line-height: 1em;  }
-      &:-ms-input-placeholder { font-size: 1em; line-height: 1em;  }
-    }
+
+  &::-webkit-input-placeholder {
+    font-family: 'Raleway';
+    font-size: 20px;
   }
 }
 
+.officials {
+  position: relative;
+  width: 70%;
+  height: 400px;
+  display: block;
+  border: 3px solid #FFF;
+  margin: 0 auto;
+  background: repeating-linear-gradient(
+    -55deg,
+    $red,
+    $red 25px,
+    $purple 25px,
+    $purple 50px
+  );
+
+  &:after {
+    content: 'Your Officials';
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 65px;
+    display: block;
+    height: 100px;
+    width: 60%;
+    top: -40px;
+    left: 100px;
+    position: absolute;
+    color: $blue;
+
+    background-color: rgb(34, 34, 60);
+  }
+
+  .inner {
+    text-align: left;
+
+    h3 { font-size: 24px; }
+    h4 { font-size: 18px; }
+
+    .official {
+      margin: 20px 0;
+    }
+
+    font-family: 'Raleway';
+    color: #FFF;
+    position: absolute;
+    left: 120px;
+    top: 65px;
+  }
+
+  margin-bottom: 40px;
+}
+
 .issueSelector {
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 65px;
+  color: #fff;
+
   select {
-    width: 400px;
+    width: 50%;
+    color: #FFF;
+    font-family: 'Raleway';
+    font-size: 18px;
+    background-color: $purple;
   }
 
   textarea {
-    width: 400px;
-    height: 300px;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    margin-top: 40px;
+    width: 50%;
+    height: 200px;
   }
-  text-align: center;
+}
+
+.form-submit {
+  margin-top: 40px;
+  margin-bottom: 300px;
+
+ .submit-button {
+   cursor: pointer;
+   padding: 20px 40px;
+   color: #fff;
+   width: 120px;
+   font-family: 'Montserrat';
+   font-size: 24px;
+   border: 3px solid #fff;
+   display: block;
+   margin: 0 auto;
+
+   &:hover {
+    background: repeating-linear-gradient(
+      55deg,
+      $blue,
+      $blue 10px,
+      $purple 10px,
+      $purple 20px
+    );
+   }
+  }
 }

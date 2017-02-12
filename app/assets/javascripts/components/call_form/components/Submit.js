@@ -9,7 +9,9 @@ const Submit = ({ script, phones }) => {
   }
 
   return (
-    <input type="submit" value="Call!" onClick={() => submitCall() }></input>
+    <div className="form-submit">
+      <div className="submit-button">Call!</div>
+    </div>
   )
 }
 
