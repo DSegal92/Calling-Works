@@ -28,6 +28,9 @@ const IssueSelector = ({ issues, activeIssue, selectIssue, updateIssue }) => {
       you've filled in all of the prompts, and the message will make sense to them all.
     </p>
     <textarea value={ getScript() } onChange={(e) => updateIssue(activeIssue, e.target.value)}></textarea>
+    <p className="issueSelector--explainer">
+      Scripts & Issues from <a href="https://5calls.org">5calls.org</a>
+    </p>
   </div>
   )
 }
