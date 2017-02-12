@@ -11,6 +11,7 @@ class MakeCall < ActiveJob::Base
 
     c.account.calls.create(to: number,
                            url: escaped,
-                           from: TWILIO_CONFIG['number'])
+                           from: TWILIO_CONFIG['number'],
+                           IfMachine: 'Continue')
   end
 end
