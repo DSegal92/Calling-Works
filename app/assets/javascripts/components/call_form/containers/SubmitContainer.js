@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Submit from '../components/Submit.js';
+import { placeCall } from '../actions';
 
 const mapStateToProps = (state) => {
   const getScript = () => {
@@ -21,8 +22,17 @@ const mapStateToProps = (state) => {
   })
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    placeCall: () => {
+      dispatch(placeCall())
+    }
+  }
+}
+
 const SubmitContainer = connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Submit)
 
 export default SubmitContainer;

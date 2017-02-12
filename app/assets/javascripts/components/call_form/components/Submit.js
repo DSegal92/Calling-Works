@@ -1,5 +1,6 @@
-const Submit = ({ script, phones }) => {
+const Submit = ({ script, phones, placeCall }) => {
   const submitCall = () => {
+    placeCall()
     $.ajax({
       url: '/call',
       method: 'POST',
@@ -10,7 +11,9 @@ const Submit = ({ script, phones }) => {
 
   return (
     <div className="form-submit">
-      <div className="submit-button">Call!</div>
+      { (phones.length > 0) &&
+        <div className="submit-button" onClick={ () => submitCall() }>Call!</div>
+      }
     </div>
   )
 }

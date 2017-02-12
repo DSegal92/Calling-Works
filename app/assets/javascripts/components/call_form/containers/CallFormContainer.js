@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CallForm from '../components/CallForm.js';
-import { fetchReps, fetchIssues } from '../actions';
+import { fetchReps, fetchIssues, setPlacedMessage } from '../actions';
 import { debounce } from '../../lib/debounce.js'
 
 const mapStateToProps = (state) => ({
@@ -9,7 +9,8 @@ const mapStateToProps = (state) => ({
               state.officials.vice_president,
               state.officials.senator_0,
               state.officials.senator_1,
-              state.officials.representative]
+              state.officials.representative],
+  message: state.call.message
 })
 
 const mapDispatchToProps = (dispatch) => {
@@ -19,7 +20,11 @@ const mapDispatchToProps = (dispatch) => {
   }, 250)
 
   return ({
-    updateAddress
+    updateAddress,
+
+    clearPlacedMessage: () => {
+      dispatch(setPlacedMessage(''))
+    }
   })
 }
 

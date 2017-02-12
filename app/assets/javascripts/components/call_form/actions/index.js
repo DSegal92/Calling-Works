@@ -8,6 +8,8 @@ export const SET_ISSUE = 'SET_ISSUE';
 export const FETCH_ISSUES = 'FETCH_ISSUES';
 export const SET_ACTIVE_ISSUE = 'SET_ACTIVE_ISSUE';
 export const UPDATE_ISSUE = 'UPDATE_ISSUE';
+export const SET_CALL_PLACED = 'SET_CALL_PLACED';
+export const SET_PLACED_MESSAGE = 'SET_PLACED_MESSAGE';
 
 export const setAddress = (address) => {
   return ({ type: SET_ADDRESS, address })
@@ -57,3 +59,19 @@ export const setActiveIssue = (id) => (
 export const updateIssue = (id, content) => (
   { type: UPDATE_ISSUE, id, content }
 )
+
+export const placeCall = () => (
+  (dispatch) => {
+    dispatch(setCallPlaced())
+    dispatch(setPlacedMessage('Your calls are being placed.'))
+  }
+)
+
+export const setCallPlaced = () => ({
+  type: SET_CALL_PLACED
+})
+
+export const setPlacedMessage = (message) => ({
+  type: SET_PLACED_MESSAGE,
+  message: message
+})
