@@ -1,6 +1,6 @@
 import React from 'react'
 
-const IssueSelector = ({ issues, activeIssue, selectIssue }) => {
+const IssueSelector = ({ issues, activeIssue, selectIssue, updateIssue }) => {
   const getScript = () => {
     if (issues[activeIssue]) {
       return issues[activeIssue].script
@@ -26,7 +26,7 @@ const IssueSelector = ({ issues, activeIssue, selectIssue }) => {
     </select>
     <br />
     <br />
-    <textarea value={getScript()}></textarea>
+    <textarea value={ getScript() } onChange={(e) => updateIssue(activeIssue, e.target.value)}></textarea>
   </div>
   )
 }

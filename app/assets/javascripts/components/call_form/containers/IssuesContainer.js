@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import IssueSelector from '../components/IssueSelector.js';
-import { fetchReps, fetchIssues, setIssue, setActiveIssue } from '../actions';
+import { fetchReps, fetchIssues, setIssue, setActiveIssue, updateIssue } from '../actions';
 import { debounce } from '../../lib/debounce.js'
 
 const mapStateToProps = (state) => ({
@@ -13,6 +13,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     selectIssue: (id) => {
       dispatch(setActiveIssue(id))
+    },
+
+    updateIssue: (id, content) => {
+      dispatch(updateIssue(id, content))
     }
   }
 }

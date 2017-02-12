@@ -7,6 +7,7 @@ export const SET_REP = 'SET_REP';
 export const SET_ISSUE = 'SET_ISSUE';
 export const FETCH_ISSUES = 'FETCH_ISSUES';
 export const SET_ACTIVE_ISSUE = 'SET_ACTIVE_ISSUE';
+export const UPDATE_ISSUE = 'UPDATE_ISSUE';
 
 export const setAddress = (address) => {
   return ({ type: SET_ADDRESS, address })
@@ -51,4 +52,8 @@ export const fetchIssues = (address) => (
 
 export const setActiveIssue = (id) => (
   { type: SET_ACTIVE_ISSUE, id }
+)
+
+export const updateIssue = (id, content) => (
+  { type: UPDATE_ISSUE, id, content }
 )
