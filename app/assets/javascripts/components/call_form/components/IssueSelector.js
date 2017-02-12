@@ -19,10 +19,14 @@ const IssueSelector = ({ issues, activeIssue, selectIssue, updateIssue }) => {
     <select onChange={(e) => { selectIssue(e.target.value) }} >
       { Object.keys(issues).map((i, index) => {
         if (index != 0) {
-        return (<option key={issues[i].id} value={issues[i].id}> {issues[i].name} </option>)
+          return (<option key={issues[i].id} value={issues[i].id}> {issues[i].name} </option>)
         }
       })}
     </select>
+    <p className="issueSelector--explainer">
+      Note: This message will be sent verbatim to all of the above offices, make sure
+      you've filled in all of the prompts, and the message will make sense to them all.
+    </p>
     <textarea value={ getScript() } onChange={(e) => updateIssue(activeIssue, e.target.value)}></textarea>
   </div>
   )

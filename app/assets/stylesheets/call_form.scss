@@ -3,56 +3,154 @@ $blue: rgb(0, 73, 255);
 $purple: rgb(34, 34, 60);
 
 html, body {
-
   background-color: rgb(34, 34, 60);
   text-align: center;
 }
 
-.style1 {
-  margin-top: 60px;
-  font-size: 100px;
+.call-form--header {
+  margin-top: 20px;
+  font-size: 70px;
   color: #fff;
   padding: 20px;
   font-family: 'Montserrat';
   font-weight: 900;
-
   text-shadow: 4px 4px $blue;
 }
 
-.address-input input {
-  margin-top: 60px;
-  width: 80%;
-  height: 80px;
-  background-color: transparent;
-  border: 0px;
-  border-bottom: 3px solid #FFF;
-  border-right: 3px solid #FFF;
-  box-shadow: 7px 6px 0px $blue;
-  font-family: 'Raleway';
-  font-size: 80px;
-  line-height: 80px;
-  color: #fff;
-  margin-bottom: 100px;
+.official--main {
+  float: left;
+}
 
+.official--secondary {
+  float: right;
+  visibility: hidden;
+  height: 0;
+}
 
-  &::-webkit-input-placeholder {
-    font-family: 'Raleway';
-    font-size: 20px;
+.style1 {
+}
+
+.secondaryForm {
+  opacity: 0;
+  display: none;
+
+  &.active {
+    display: block;
+    transition:opacity 1s linear;
+    opacity: 1;
   }
 }
 
+.call-form {
+  min-height: 100vh;
+}
+
+.hidden {
+  height: 0;
+  visibility: hidden !important;
+
+  .officials .officials--secondary {
+    visibility: hidden !important;
+  }
+}
+
+.footer {
+  padding: 20px 0;
+  background-color: darken($purple, 10%);
+  font-family: 'Montserrat';
+  bottom: 0;
+  position: fixed;
+  color: lighten($blue, 10%);
+  left: 0px;
+  width: 100%;
+  text-align: center;
+
+  a {
+    color: lighten($blue, 20%);
+
+    &:hover {
+    color: lighten($blue, 30%);
+    }
+  }
+
+  .footer--questions {
+    margin-top: 5px;
+    font-size: 12px;
+  }
+}
+
+.call-form--inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  transition: min-height 1s ease;
+
+  &.collapsed {
+    min-height: 100px;
+  }
+}
+
+.address-input {
+  & input {
+    border-radius: 0px;
+    outline: none;
+    -webkit-appearance: none;
+    width: 70%;
+    margin: 0 auto;
+    display: block;
+    margin-top: 40px;
+    height: 80px;
+    text-align: center;
+    overflow: hidden;
+    background-color: transparent;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    border: 1px solid $purple;
+    border-bottom: 3px solid #FFF;
+    font-family: 'Raleway';
+    color: #fff;
+    margin-bottom: 100px;
+
+    &::-webkit-input-placeholder {
+      font-family: 'Raleway';
+      font-size: 20px;
+      line-height: 20x;
+      height: 20px;
+    }
+  }
+}
+
+.callMessage {
+  font-family: 'Raleway';
+  color: #fff;
+  font-size: 40px;
+
+  h4 {
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 24px;
+    text-decoration: underline;
+  }
+}
+
+
 .officials {
+  max-width: 1000px;
   position: relative;
-  width: 70%;
-  height: 400px;
+  height: 650px;
   display: block;
   border: 3px solid #FFF;
   margin: 0 auto;
+  width: 90%;
 
   background: repeating-linear-gradient(
     -63.4deg,
-    $red,
-    $red 25px,
+    darken($red, 15%),
+    darken($red, 15%) 25px,
     $purple 25px,
     $purple 50px
   );
@@ -61,33 +159,50 @@ html, body {
     content: 'Your Officials';
     font-family: 'Montserrat';
     font-weight: 700;
-    font-size: 65px;
+    font-size: 30px;
     display: block;
-    height: 100px;
-    width: 60%;
-    top: -40px;
-    left: 100px;
+    height: 60px;
+    top: -20px;
+    left: 30px;
+    right: 30px;
     position: absolute;
-    color: $blue;
+    color: #FFF;
 
     background-color: rgb(34, 34, 60);
   }
 
   .inner {
     text-align: left;
+    width: 75%;
 
     h3 { font-size: 24px; }
     h4 { font-size: 18px; }
 
     .official {
-      margin: 20px 0;
+
+      &.Republican {
+        background-color: $red;
+        padding: 20px;
+      }
+
+      &.Democratic {
+        background-color: $blue;
+        padding: 20px;
+      }
+      width: 100%;
+      margin: 11px 0;
+      display: inline-block;
+
+      .extra-info {
+        float: right;
+      }
     }
 
     font-family: 'Raleway';
     color: #FFF;
     position: absolute;
-    left: 120px;
-    top: 65px;
+    left: 26px;
+    top: 45px;
   }
 
   margin-bottom: 40px;
@@ -96,29 +211,36 @@ html, body {
 .issueSelector {
   font-family: 'Montserrat';
   font-weight: 700;
-  font-size: 65px;
+  font-size: 30px;
   color: #fff;
+  width: 100%;
+
+  p {
+    width: 80%;
+    margin: 40px auto;
+    font-size: 12px;
+  }
 
   select {
-    width: 50%;
+    margin-top: 20px;
+    width: 90%;
     color: #FFF;
     font-family: 'Raleway';
-    font-size: 18px;
+    font-size: 12px;
     background-color: $purple;
   }
 
   textarea {
     font-family: 'Open Sans';
     font-size: 14px;
-    margin-top: 40px;
-    width: 50%;
+    width: 90%;
     height: 200px;
   }
 }
 
 .form-submit {
   margin-top: 40px;
-  margin-bottom: 300px;
+  margin-bottom: 160px;
 
  .submit-button {
    cursor: pointer;
